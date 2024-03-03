@@ -1,0 +1,52 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "gendiff": "bin/gendiff.ts"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "gendiff": "tsx bin/gendiff.ts",
+    "diff:stylish:json": "tsx bin/gendiff.ts -f stylish __fixtures__/file1-a.json __fixtures__/file1-b.json",
+    "diff:stylish:yaml": "tsx bin/gendiff.ts -f stylish __fixtures__/file1-a.yml __fixtures__/file1-b.yml",
+    "diff:plain": "tsx bin/gendiff.ts -f plain __fixtures__/file1-a.json __fixtures__/file1-b.json",
+    "diff:json": "tsx bin/gendiff.ts -f json __fixtures__/file1-a.json __fixtures__/file1-b.json",
+    "test": "jest",
+    "lint": "eslint src/",
+    "build": "npm run clean && npm run compile",
+    "compile": "tsc -p tsconfig.json",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "imports": {
+    "#src/*": "./dist/*"
+  },
+  "dependencies": {
+    "commander": "12.0.0",
+    "js-yaml": "4.1.0",
+    "lodash": "4.17.21",
+    "tslib": "2.6.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/js-yaml": "4.0.9",
+    "@types/lodash": "4.14.202",
+    "@typescript-eslint/eslint-plugin": "7.1.0",
+    "@typescript-eslint/parser": "7.1.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-jest": "27.9.0",
+    "eslint-plugin-optimize-regex": "1.2.1",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-simple-import-sort": "12.0.0",
+    "eslint-plugin-sonarjs": "0.24.0",
+    "jest": "^29.7.0",
+    "ts-jest": "29.1.2",
+    "tsx": "4.7.1",
+    "typescript": "5.3.3"
+  }
+}
