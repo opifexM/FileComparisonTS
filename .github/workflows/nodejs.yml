@@ -21,15 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Log Node.js version
-        run: node -v
-
-      - name: Log NPM packages
-        run: npm list
-
-      - name: Log directory structure
-        run: ls -lah
-
       - name: Tests
         run: npm test
 
