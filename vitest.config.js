@@ -5,5 +5,8 @@ export default defineConfig({
   plugins: [eslint()],
   test: {
     environment: 'jsdom',
+    coverage: {
+      provider: 'v8'
+    },
   },
 });
