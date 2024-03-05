@@ -1,9 +1,9 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { describe, it, expect } from 'vitest';
-import { readFileData } from '#src/file-reader.js';
-import { FormatType } from '#src/formatter/format.type.js';
-import { startGeneration } from '#src/index.js';
+import { readFileData } from '../src/file-reader.js';
+import { FormatType } from '../src/formatter/format.type.js';
+import { startGeneration } from '../src/index.js';
 
 function testFileFormat(inputFileName: string, fileFormat: string | undefined): void {
   const fixturesPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '__fixtures__');
