@@ -24,15 +24,10 @@
   "plugins": [
     "sonarjs",
     "promise",
-    "optimize-regex",
-    "@typescript-eslint",
-    "simple-import-sort",
-    "jest"
+    "@typescript-eslint"
   ],
   "rules": {
     "optimize-regex/optimize-regex": "warn",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "@typescript-eslint/no-extra-semi": "error",
     "@typescript-eslint/explicit-member-accessibility": "warn",
     "@typescript-eslint/no-unused-vars": [

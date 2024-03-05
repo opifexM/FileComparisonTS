@@ -46,16 +46,16 @@ export class StylishFormatter implements Formatter {
 
       switch (diffValue) {
       case DiffValue.Deleted:
-        return [...acc, `${space}  - ${diffKey}: ${this.getFormatObject(value1, spaceNumber + this.SPACE_INCREMENT)}`];
+        return [...acc, `${space}  - ${diffKey}: ${this.getFormatObject(value1, spaceNumber)}`];
       case DiffValue.Added:
-        return [...acc, `${space}  + ${diffKey}: ${this.getFormatObject(value2, spaceNumber + this.SPACE_INCREMENT)}`];
+        return [...acc, `${space}  + ${diffKey}: ${this.getFormatObject(value2, spaceNumber)}`];
       case DiffValue.Unchanged:
-        return [...acc, `${space}    ${diffKey}: ${this.getFormatObject(value1, spaceNumber + this.SPACE_INCREMENT)}`];
+        return [...acc, `${space}    ${diffKey}: ${this.getFormatObject(value1, spaceNumber)}`];
       case DiffValue.Changed:
         return [
           ...acc,
-          `${space}  - ${diffKey}: ${this.getFormatObject(value1, spaceNumber + this.SPACE_INCREMENT)}`,
-          `${space}  + ${diffKey}: ${this.getFormatObject(value2, spaceNumber + this.SPACE_INCREMENT)}`
+          `${space}  - ${diffKey}: ${this.getFormatObject(value1, spaceNumber)}`,
+          `${space}  + ${diffKey}: ${this.getFormatObject(value2, spaceNumber)}`
         ];
       default:
         if (diffValue instanceof Map) {
