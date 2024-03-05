@@ -34,8 +34,6 @@ const fileFormatsMap = {
 
 console.log(testFileFormat);
 describe.each(Object.entries(fileFormatsMap))('Testing format %s', (fileFormat, inputFileNames) => {
-  console.log(fileFormat);
-  console.log(inputFileNames);
   it.each(inputFileNames)(`Testing files with base name '%s' and format '${fileFormat}'`, baseName => {
     testFileFormat(baseName, fileFormat);
   });
