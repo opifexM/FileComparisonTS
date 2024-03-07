@@ -20,43 +20,34 @@ export class FormatConverter {
   public constructor(fileName1: string, fileName2: string, selectedFormat: FormatType) {
     this.fileName1 = fileName1;
     this.fileName2 = fileName2;
+    this.fileFormatter = this.createFormatter(selectedFormat);
+    this.fileParser1 = this.createParser(fileName1);
+    this.fileParser2 = this.createParser(fileName2);
+  }
 
+  private createFormatter(selectedFormat: FormatType): Formatter {
     switch (selectedFormat) {
     case FormatType.json:
-      this.fileFormatter = new JsonFormatter();
-      break;
+      return new JsonFormatter();
     case FormatType.stylish:
-      this.fileFormatter = new StylishFormatter();
-      break;
+      return new StylishFormatter();
     case FormatType.plain:
-      this.fileFormatter = new PlainFormatter();
-      break;
+      return new PlainFormatter();
     default:
       throw new Error(`Unsupported format: ${selectedFormat}`);
     }
+  }
 
-    switch (fileName1.split('.').slice(-1)[0]) {
+  private createParser(fileName: string): Parser {
+    const extension = fileName.split('.').pop();
+    switch (extension) {
     case ParserType.json:
-      this.fileParser1 = new JsonParser();
-      break;
+      return new JsonParser();
     case ParserType.yml:
     case ParserType.yaml:
-      this.fileParser1 = new YamlParser();
-      break;
+      return new YamlParser();
     default:
-      throw new Error(`Incorrect file format for parse '${fileName1}'`);
-    }
-
-    switch (fileName2.split('.').slice(-1)[0]) {
-    case ParserType.json:
-      this.fileParser2 = new JsonParser();
-      break;
-    case ParserType.yml:
-    case ParserType.yaml:
-      this.fileParser2 = new YamlParser();
-      break;
-    default:
-      throw new Error(`Incorrect file format for parse '${fileName2}'`);
+      throw new Error(`Unsupported file extension: ${extension}`);
     }
   }
 
